@@ -35,17 +35,25 @@ const CustomForm = () => {
     setError(false);
   };
 
+  const habilitar = () => {
+    if (username !== "" && password !== "") {
+      setDisabledButton(false)
+      return
+    }
+    setDisabledButton(true)
+  }
+
   return (
     <div  style={{ maxWidth: "700px", margin: '0 auto', alignItems: "center", justifyContent: "center", marginTop: '20px', marginBottom: '20px' }}>
       {error ? <Alert key='danger' variant='danger' >Los datos son incorrectos. !</Alert>: null}
       <Form noValidate validated={!error} onSubmit={login} >
         <Form.Group as={Row} className="mb-3" controlId="txt.usernameInput">
           <Form.Label className='ml-auto'>USERNAME</Form.Label>
-          <Form.Control type="text" placeholder="" name='username' onChange={(e) => setUsername(e.target.value)} />
+          <Form.Control type="text" placeholder="" name='username' onChange={(e) => {setUsername(e.target.value);habilitar()}} />
         </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="txt.passInput">
           <Form.Label>PASSWORD</Form.Label>
-          <Form.Control type="password" placeholder="" name='password' onChange={(e) => setPassword(e.target.value)} />
+          <Form.Control type="password" placeholder="" name='password' onChange={(e) => {setPassword(e.target.value);habilitar()}} />
         </Form.Group>
       </Form>
       {!disabledButton ? <Button type="submit" variant="dark">Iniciar Sesión</Button> : null}

@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
@@ -28,15 +27,10 @@ const CustomForm = () => {
       event.stopPropagation();
     }
     if (username === "ADL" && password === "252525") {
-
       setError(false)
       alert('Login correcto');
-      return
-    }
-    else {
+    } else {
       setError(true);
-      
-      return
     }
   };
 

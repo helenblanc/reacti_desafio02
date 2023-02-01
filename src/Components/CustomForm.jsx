@@ -30,6 +30,14 @@ const CustomForm = () => {
     if (username === "" || password === "") {
       setError(true)
       return
+    }else{
+      if(username === "ADL" && password === "252525"){
+        setError(false)
+        alert('Login correcto');
+      }
+      else{
+        setError(true);
+      }
     }
 
     setError(false);
